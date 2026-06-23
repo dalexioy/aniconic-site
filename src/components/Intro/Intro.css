@@ -1,0 +1,30 @@
+.intro {
+  margin-top: 36px;
+  max-width: 1120px;
+}
+
+.intro p {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.17;
+  letter-spacing: -0.6px;
+  text-align: left;
+}
+
+@media (max-width: 800px) {
+  .intro {
+    margin-top: 34px;
+  }
+
+  .intro p {
+    font-size: 20px;
+    line-height: 1.18;
+    letter-spacing: -0.45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro p {
+    font-size: 18px;
+  }
+}

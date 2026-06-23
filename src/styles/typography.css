@@ -1,0 +1,12 @@
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background: var(--color-bg);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-text);
+  color: var(--color-bg);
+}

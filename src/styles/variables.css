@@ -1,0 +1,17 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-muted: #8f8f8f;
+  --color-line: #111111;
+
+  --font-main: Arial, Helvetica, sans-serif;
+
+  --space-page-x: 26px;
+  --space-page-y: 22px;
+
+  --transition-fast: 180ms ease;
+  --transition-medium: 450ms ease;
+  --space-page-x-mobile: 16px;
+  --space-page-y-mobile: 16px;
+}
+    

@@ -1,0 +1,35 @@
+.header {
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:var(--color-bg);
+
+    padding:24px 0;
+
+}
+
+.logo{
+
+    font-size:54px;
+
+    font-weight:600;
+
+    letter-spacing:-3px;
+
+    color:inherit;
+
+    text-decoration:none;
+
+    display:inline-block;
+
+}
+
+.logo:hover{
+
+    opacity:.6;
+
+}

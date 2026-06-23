@@ -1,0 +1,16 @@
+.site {
+  width: 1126px;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 var(--space-page-x) var(--space-page-y);
+  border-inline: 1px solid #e5e4e7;
+}
+
+@media (max-width: 800px) {
+  .site {
+    width: 100%;
+    padding: 0 var(--space-page-x-mobile) var(--space-page-y-mobile);
+    border-inline: none;
+  }
+}

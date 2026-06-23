@@ -1,0 +1,7 @@
+.is-muted {
+  color: var(--color-muted);
+}
+
+.dotted-line {
+  border-bottom: 1px dotted var(--color-line);
+}
