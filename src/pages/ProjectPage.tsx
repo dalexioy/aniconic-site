@@ -26,11 +26,8 @@ export function ProjectPage() {
   }, [project]);
 
   if (loading) {
-    return (
-      <Layout>
-        <p className="not-found">Loading project...</p>
-      </Layout>
-    );
+    return null;
+    
   }
 
   if (!project) {
