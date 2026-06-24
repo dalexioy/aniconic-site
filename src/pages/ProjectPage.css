@@ -94,9 +94,9 @@
   }
 
   .project-detail__top h2 {
-    font-size: clamp(42px, 18vw, 78px);
-    line-height: 0.92;
-    letter-spacing: -2px;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
   }
 
   .project-detail__meta {
