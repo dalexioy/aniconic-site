@@ -2,29 +2,36 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import { getProjectBySlug } from "../services/projectService";
-import { getProjectSeoTitle, getProjectSeoDescription } from "../lib/seo";
-
+import { useProject } from "../hooks/useProject";
 import { Layout } from "../layout/Layout";
 import { ProjectGallery } from "../components/ProjectGallery/ProjectGallery";
-import { ProjectNavigation } from "../components/ProjectNavigation/ProjectNavigation";
 
 import "./ProjectPage.css";
 
 export function ProjectPage() {
   const { id } = useParams();
-
-  const project = getProjectBySlug(id);
+  const { project, loading } = useProject(id);
 
   useEffect(() => {
     if (!project) return;
 
-    document.title = getProjectSeoTitle(project);
+    document.title = project.seoTitle ?? `${project.title} | Aniconic`;
 
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute("content", getProjectSeoDescription(project));
+      ?.setAttribute(
+        "content",
+        project.seoDescription ?? project.description ?? ""
+      );
   }, [project]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <p className="not-found">Loading project...</p>
+      </Layout>
+    );
+  }
 
   if (!project) {
     return (
@@ -40,7 +47,6 @@ export function ProjectPage() {
         className="project-detail"
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -12 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
         <div className="project-detail__top">
@@ -48,7 +54,7 @@ export function ProjectPage() {
         </div>
 
         <div className="project-detail__meta">
-          <span>{project.disciplines.join(", ")}</span>
+          <span>{project.disciplines?.join(", ")}</span>
           <span>{project.year}</span>
           <span>{project.location}</span>
         </div>
@@ -58,8 +64,6 @@ export function ProjectPage() {
         )}
 
         <ProjectGallery images={project.gallery} title={project.title} />
-
-        <ProjectNavigation currentId={project.id} />
 
         <Link className="back-link" to="/">
           ← Back to index

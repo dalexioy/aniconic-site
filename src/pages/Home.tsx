@@ -3,15 +3,18 @@ import { Intro } from "../components/Intro/Intro";
 import { Projects } from "../components/Projects/Projects";
 import { Layout } from "../layout/Layout";
 import { useEffect } from "react";
-import { getHomeSeoTitle, getHomeSeoDescription } from "../lib/seo";
+
 
 export function Home() {
   useEffect(() => {
-    document.title = getHomeSeoTitle();
+    document.title = "Aniconic";
 
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute("content", getHomeSeoDescription());
+      ?.setAttribute(
+        "content",
+        "Architecture and Interior Design Portfolio."
+      );
   }, []);
   return (
     <Layout>

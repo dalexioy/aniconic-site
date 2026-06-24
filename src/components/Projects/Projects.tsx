@@ -1,9 +1,25 @@
-import { getProjects } from "../../services/projectService";
+import { useProjects } from "../../hooks/useProjects";
 import { ProjectRow } from "../ProjectRow/ProjectRow";
 import "./Projects.css";
 
 export function Projects() {
-  const projects = getProjects();
+  const { projects, loading } = useProjects();
+
+  if (loading) {
+    return (
+      <section className="projects">
+        <p>Loading projects...</p>
+      </section>
+    );
+  }
+
+  if (projects.length === 0) {
+    return (
+      <section className="projects">
+        <p>No projects published yet.</p>
+      </section>
+    );
+  }
 
   return (
     <section className="projects">
@@ -16,7 +32,7 @@ export function Projects() {
       </div>
 
       {projects.map((project) => (
-        <ProjectRow key={project.id} project={project} />
+        <ProjectRow key={project._id} project={project} />
       ))}
     </section>
   );
